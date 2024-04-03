@@ -1,0 +1,18 @@
+---
+- name: Setup environment for kernel build on Ubuntu
+  hosts: ubuntu_servers
+  become: yes
+  tasks:
+    - name: Install required packages for kernel build
+      apt:
+        name:
+          - build-essential
+          - libncurses-dev
+          - bc
+          - bison
+          - flex
+          - libssl-dev
+          - libelf-dev
+        state: present
+        update_cache: yes
+
