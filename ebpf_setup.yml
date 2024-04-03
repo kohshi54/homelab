@@ -1,0 +1,32 @@
+---
+- name: Setup eBPF environment on Ubuntu servers
+  hosts: ubuntu_servers
+  become: yes
+  tasks:
+    - name: Get the current kernel version
+      shell: uname -r
+      register: kernel_version
+      changed_when: false
+
+    - name: Install required packages for eBPF
+      apt:
+        name:
+          - bpftrace
+          - bcc
+          # - libbcc-examples
+          - "linux-headers-{{ kernel_version.stdout }}"
+          - "linux-tools-{{ kernel_version.stdout }}"
+          - linux-tools-common
+        state: present
+        update_cache: yes
+
+- name: Setup bcc and editors for eBPF development
+  hosts: ubuntu_servers
+  become: yes
+  tasks:
+    - name: Install bcc requirements
+      apt:
+        name:
+          - bpfcc-tools
+        state: present
+        update_cache: yes
