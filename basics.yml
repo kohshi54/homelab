@@ -1,0 +1,17 @@
+---
+- name: Install basic packages
+  hosts: isc
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install vim, tmux, and traceroute
+      apt:
+        name:
+          - vim
+          - tmux
+          - traceroute
+        state: present
+
