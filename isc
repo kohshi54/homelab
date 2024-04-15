@@ -1,0 +1,3 @@
+[isc]
+isc7 ansible_host=ubuntu-isc7 ansible_user=
+
