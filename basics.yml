@@ -1,6 +1,6 @@
 ---
 - name: Install basic packages
-  hosts: isc
+  hosts: pxubuntu, isc
   become: yes
   tasks:
     - name: Update apt cache
@@ -8,11 +8,14 @@
         update_cache: yes
         cache_valid_time: 3600 
 
-    - name: Install vim, tmux, and traceroute
+    - name: Install vim, tmux, traceroute, net-tools, nmap, curl
       apt:
         name:
           - vim
           - tmux
           - traceroute
+          - net-tools
+          - nmap
+          - curl
         state: present
 
