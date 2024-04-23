@@ -1,6 +1,13 @@
 # homelab
 
 ## usage
+To execute all playbooks.
 ```bash
-ansible-playbook -i inventory kbuild_setup.yml --ask-become
+make
 ```
+
+To run only specific playbook, specify the target.
+```bash
+make basics
+```
+
