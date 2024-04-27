@@ -6,3 +6,5 @@ basics:
 xdp:
 	ansible-playbook -i inventory xdp_tutorial.yml --ask-vault-pass
 
+bcc:
+	ansible-playbook -i inventory bcc.yml --ask-vault-pass
