@@ -1,0 +1,28 @@
+---
+- name: Install dependency for xdp tutorial
+  hosts: pxubuntu102
+  become: yes
+  vars_files:
+    - secrets.yml
+  tasks:
+    - name: Get kernel version
+      shell: uname -r
+      register: kernel_version
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600 
+
+    - name: Install clang llvm libelf-dev libpcap-dev build-essential libc6-dev-i386 perf linux-headers
+      apt:
+        name:
+          - clang
+          - llvm
+          - libpcap-dev
+          - build-essential
+          - libc6-dev-i386
+          - linux-tools-{{ kernel_version.stdout }}
+          - linux-headers-{{ kernel_version.stdout }}
+        state: present
+
