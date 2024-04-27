@@ -24,5 +24,15 @@
           - libc6-dev-i386
           - linux-tools-{{ kernel_version.stdout }}
           - linux-headers-{{ kernel_version.stdout }}
+
+    - name: extra packages for libbpf
+      apt:
+        name:
+          - linux-tools-common
+          - linux-tools-generic
+          - tcpdump
+          - libelf-dev
+          - m4
+
         state: present
 
