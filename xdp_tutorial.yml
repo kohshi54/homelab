@@ -34,5 +34,10 @@
           - libelf-dev
           - m4
 
+    - name: extra packages for tutorial basic02
+      apt:
+        name:
+        - ethtool
+
         state: present
 
