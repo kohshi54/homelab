@@ -10,7 +10,7 @@
         update_cache: yes
         cache_valid_time: 3600 
 
-    - name: Install vim, tmux, traceroute, net-tools, nmap, curl
+    - name: Install vim, tmux, traceroute, net-tools, nmap, curl, git
       apt:
         name:
           - vim
@@ -19,5 +19,7 @@
           - net-tools
           - nmap
           - curl
+          - gcc
+          - git
         state: present
 
