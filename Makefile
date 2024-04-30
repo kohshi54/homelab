@@ -8,3 +8,7 @@ xdp:
 
 bcc:
 	ansible-playbook -i inventory bcc.yml --ask-vault-pass
+
+utils:
+	ansible-playbook -i inventory utils.yml --ask-vault-pass
+
